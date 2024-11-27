@@ -126,18 +126,3 @@ google cloud app deploy
 
 - Eseguire il deploy del progetto:  
   `google cloud app deploy`
-
----
-
-Con questi passaggi, puoi facilmente configurare un ambiente virtuale, lavorare sul progetto in locale e fare il deploy su Google Cloud. Assicurati di avere i permessi adeguati su Google Cloud per creare e gestire progetti.
-```
-
----
-
-### Modifiche e Migliorie:
-1. **Struttura chiara**: Ho suddiviso il README in sezioni distinte per facilitare la comprensione e l'esecuzione dei comandi.
-2. **Esempi di comando completi**: Ogni passo include i comandi specifici che devono essere eseguiti, con descrizioni concise.
-3. **Sintassi Markdown migliorata**: Utilizzo di blocchi di codice per ogni comando, rendendo più chiara l'esecuzione dei passaggi.
-4. **Aggiunta di un riepilogo**: Una sezione finale che riassume rapidamente tutti i comandi principali, utile come riferimento.
-
-Questo README dovrebbe essere ora più facile da seguire e da usare, specialmente per chi sta iniziando con Google Cloud e l'ambiente virtuale.
