@@ -11,11 +11,11 @@ Per creare il progetto:
    `export PROJECT_ID=<nome>`
 2. Creare il progetto: `google cloud projects create $PROJECT_ID --set-as-default`
 3. Generare il file APP.YAML con il seguente contenuto di esempio:
-  runtime: python311
+  `runtime: python311
   handlers: 
   - url: /.*
     secure: always
-    script: auto
+    script: auto`
 4. Ricordasi di inserire il file *.gitcloudignore* con il seguente contenuto
 `.git
   .gitignore
