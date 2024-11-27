@@ -1,0 +1,16 @@
+[
+    {"name": "white", "red": 255, "green": 255, "blue": 255},
+    {"name": "black", "red": 0, "green": 0, "blue": 0},
+    {"name": "red", "red": 255, "green": 0, "blue": 0},
+    {"name": "green", "red": 0, "green": 255, "blue": 0},
+    {"name": "blue", "red": 0, "green": 0, "blue": 255},
+    {"name": "wisteria", "red": 189, "green": 181, "blue": 213},
+    {"name": "yellow", "red": 255, "green": 255, "blue": 0},
+    {"name": "cyan", "red": 0, "green": 255, "blue": 255},
+    {"name": "magenta", "red": 255, "green": 0, "blue": 255},
+    {"name": "orange", "red": 255, "green": 165, "blue": 0},
+    {"name": "pink", "red": 255, "green": 192, "blue": 203},
+    {"name": "turquoise", "red": 64, "green": 224, "blue": 208},
+    {"name": "lime", "red": 50, "green": 205, "blue": 50},
+    {"name": "violet", "red": 238, "green": 130, "blue": 238}
+]

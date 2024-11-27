@@ -1,0 +1,36 @@
+<html>
+<link rel="stylesheet" href="/static/colors.css">
+
+<body>
+    <h1>There are the RGB's values of the choosen color</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>RED</th>
+                <th>GREEN</th>
+                <th>BLUE</th>
+                <th>APPEARENCE</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% if color %}
+            <tr>
+                <td>{{ color.name }}</td>
+                <td>{{ color.red }}</td>
+                <td>{{ color.green }}</td>
+                <td>{{ color.blue}}</td>
+                <td>
+                    <div class="color-box"
+                        style="background-color: rgb({{ color.red }}, {{ color.green }}, {{ color.blue }});">
+                    </div>
+                </td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('home', ) }}">All colors </a>
+</body>
+
+</html>

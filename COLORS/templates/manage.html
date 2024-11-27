@@ -1,0 +1,59 @@
+<html>
+<link rel="stylesheet" href="/static/colors.css">
+
+<body>
+    <div style="margin-bottom: 20px;">
+        <a href="{{ url_for('home') }}" style="text-decoration: none;">
+            <button>HOME</button>
+        </a>
+    </div>
+
+    <h1>Manage colors</h1>
+    <form action="{{ url_for('manage') }}" method="POST">
+        <input type="hidden" name="action" value="add">
+        <label for="nome">Nome del Colore:</label>
+        <input type="text" id="name_color" name="name" placeholder="Es. Rosso Vivo" required>
+
+        <label for="red">(R):</label>
+        <input type="number" id="red" name="red" min="0" max="255" placeholder="0-255" required>
+
+        <label for="green">(G):</label>
+        <input type="number" id="green" name="green" min="0" max="255" placeholder="0-255" required>
+
+        <label for="blue">(B):</label>
+        <input type="number" id="blue" name="blue" min="0" max="255" placeholder="0-255" required>
+
+        <input type="submit" value="Save">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for color in colors %}
+            <tr>
+                <td><a href="{{ url_for('get_onecolor', name=color.name) }}">{{ color.name }}</a></td>
+                <td>
+                    <div class="color-box"
+                        style="background-color: rgb({{ color.red }}, {{ color.green }}, {{ color.blue }});">
+                    </div>
+                </td>
+                <td>
+                    <!-- Form per eliminare un colore -->
+                    <form action="{{ url_for('manage') }}" method="POST">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" name="name" value="{{ color.name }}">
+                        <button type="submit">DELETE</button>
+                    </form>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>

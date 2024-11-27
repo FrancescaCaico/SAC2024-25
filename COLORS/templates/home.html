@@ -1,0 +1,34 @@
+<html>
+<link rel="stylesheet" href="/static/colors.css">
+
+<body>
+    <h1>Colori</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for color in colors %}
+            <tr>
+                <td><a href="{{ url_for('get_onecolor', name=color.name) }}">{{ color.name }}</a></td>
+                <td>
+                    <div class="color-box"
+                        style="background-color: rgb({{ color.red }}, {{ color.green }}, {{ color.blue }});">
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="margin-bottom: 20px;">
+        <a href="{{ url_for('manage') }}" style="text-decoration: none;">
+            <button>Manage colors</button>
+        </a>
+    </div>
+</body>
+
+</html>

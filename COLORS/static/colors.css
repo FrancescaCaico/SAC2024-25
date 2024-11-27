@@ -1,0 +1,31 @@
+body {
+font-family: Arial, sans-serif;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 20px 0;
+}
+
+th,
+td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: center;
+}
+
+th {
+background-color: #f4f4f4;
+}
+
+.color-box {
+width: 50px;
+height: 20px;
+display: inline-block;
+}
+    
+.error{
+    color: red;
+    font-style: oblique;
+}
