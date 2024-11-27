@@ -1,0 +1,7 @@
+runtime: python311
+handlers: 
+- url : /static
+  static_dir: static
+- url : /.*   # regular expression significa / seguito da 0 o più caratteri
+  secure: always
+  script: auto # va a ricercare il file main per recuperare l'oggetto flask

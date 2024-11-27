@@ -1,0 +1,30 @@
+<html>
+<link rel="stylesheet" href="/static/horses.css">
+
+<body>
+    <title> Our most famous horses </title>
+    <h1> Our most famous horsers </h1>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Breed</th>
+            <th>Visual<i class='far fa-eye'></i></th>
+        </tr>
+        {% for h in famous_horses%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td><a href="{{ url_for('get_name', name=h.horse['name']) }}">{{ h.horse['name'] }}</a></td>
+            <td>{{h.horse['breed']}}</td>
+            <td>{{h.visualizations}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+    <section>Search your horse <nav>
+            <input type="text" id="searchBox" placeholder="Cerca un cavallo..." onkeyup="filterHorses()">
+        </nav>
+    </section>
+</body>
+
+</html>

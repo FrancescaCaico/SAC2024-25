@@ -1,0 +1,52 @@
+<html>
+<link rel="stylesheet" href="/static/horses.css">
+
+<body>
+    <!-- Recupero l'oggetto del contesto che si chiama Horse e ne prendo il valore del nome dato che è un dictionary-->
+    <h1>{{horse['name']}}</h1>
+
+    <table>
+        <tr>
+            <td>Breed:</td>
+            <td>{{horse['breed']}}</td>
+        </tr>
+        <tr>
+            <td>Speciality:</td>
+            <td>{{horse['speciality']}}</td>
+        </tr>
+        <tr>
+            <td>Sex:</td>
+            <td>{{horse['sex']}}</td>
+        </tr>
+        <tr>
+            <td>Number of visual:</td>
+            <td>{{visual}}</td>
+        </tr>
+    </table>
+    <!-- PEDIGREE TABELLA -->
+    <table>
+        {% set ngen = pedigree.keys() | count %}
+        <!--- Si inizializza il numero di generazioni per iterare tramite l'operatore count: quante generazioni ho-->
+
+        {% for gen in pedigree.keys() %} <!-- per le generazioni esistenti -->
+        <tr>
+            {% for col in range(pedigree[gen]|count) %} <!-- su questa generazione si vedono quanti elementi ho  -->
+            {% if col%2==0 %}{% set cls="stallion"%}{% else %}{% set cls="mare"%}{% endif %}
+            <!-- per la prima generazione il riferimento al sesso è nella struttura della tabella quindi serve fare l'alternanza di conseguenza-->
+            {% if gen==0 and horse['sex']=='M' %}{% set cls="stallion"%}{% endif %}
+            {% if gen==0 and horse['sex']=='F' %}{% set cls="mare"%}{% endif %}
+            {% set hrs=pedigree[gen][col] %} <!-- è il nome del cavallo corrente-->
+            <td colspan="{{2**(ngen-gen)}}" class="{{cls}}"> <!-- per separare ogni cavallo con i propri genitori-->
+                {% if hrs== "" %}{{hrs}} <!-- si mette solo il nome-->
+                {% else %}
+                <a href="{{hrs}}">{{hrs}}</a> <!-- si inserisce un riferimento al cavallo come link.-->
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+
+</html>
