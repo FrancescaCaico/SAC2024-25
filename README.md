@@ -1,5 +1,3 @@
-Ecco una versione sistemata e migliorata del tuo README in formato Markdown, che segue una struttura chiara e leggibile. Ho anche aggiunto alcune sezioni per migliorare la chiarezza e l'uso dei comandi.
-
 # Guida all'Utilizzo di Google Cloud e Ambiente Virtuale per il Progetto
 
 ## 1. Creazione dell'Ambiente Virtuale
