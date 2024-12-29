@@ -1,0 +1,18 @@
+# DAO OBJECT TO MANAGE COLORS IN FIRESTORE
+from google.cloud import firestore
+import json 
+
+
+class DAO(object): 
+
+    def __init__(self):
+         self.db=firestore.Client()
+
+    def get(self):
+         
+    def post(self, data):
+        ref = self.db.collection('<nome_collezione>')
+        ref.document(name).set(data)
+
+    def delete(self, name): 
+        self.db.collection('<nome>').document(name).delete()
