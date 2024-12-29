@@ -1,0 +1,37 @@
+# IMPORT NECESSARIE PER IMPLEMENTARE L'API 
+
+from flask import Flask, request
+from flask_restful import Resource, Api
+# from DAO import DAO
+
+
+app = Flask(__name__,static_url_path='/static',static_folder='static')
+api=Api(app)
+# dao = DAO()
+
+# SI INSERISCE IL BASE PATH SPECIFICATO NEL .YAML DELLA CONFIGURAZIONE ( SOLITAMENTE DATA DAL PROF )
+basePath = "/api/v1"
+
+
+# A seconda del numero di risorse specificate nel .yaml si generano le classi di conseguenza --> solitamente in fondo e identificate dal campo "object"
+
+class Resource1(Resource):
+    def post(self):
+        dao.clean()
+        return None, 200
+    
+    def get(self):
+        dao.clean()
+        return None, 200
+
+
+
+
+
+
+
+# dopo aver generato le classi le si aggiungono linkando gli url relativi 
+
+api.add_resource(Resource1, f'{basePath}/umarell/<int:idumarell>')
+api.add_resource(Resource2, f'{basePath}/cantiere/<int:idcantiere>')
+api.add_resource(Resource3, f'{basePath}/clean') # o azione importante
