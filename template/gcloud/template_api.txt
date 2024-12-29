@@ -35,3 +35,6 @@ class Resource1(Resource):
 api.add_resource(Resource1, f'{basePath}/umarell/<int:idumarell>')
 api.add_resource(Resource2, f'{basePath}/cantiere/<int:idcantiere>')
 api.add_resource(Resource3, f'{basePath}/clean') # o azione importante
+
+if __name__ == '__main__':
+     app.run(host='127.0.0.1', port=8080, debug=True)
