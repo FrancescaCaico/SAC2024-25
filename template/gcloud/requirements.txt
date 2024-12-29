@@ -1,0 +1,21 @@
+# USARE FLASK 
+flask 
+# USARE FLASK CON FUNCTIONS 
+flask==2.3.3
+
+# PER FIRESTORE
+google-cloud-firestore
+
+# PER I FORMS
+WTForms
+
+# PER IL SISTEMA PUB SUB 
+google-cloud-pubsub 
+
+# PER USARE LE REQUEST HTTP DELL'UTENTE
+requests
+
+# PER L'IMPLEMENTAZIONE DELLE API
+flask-restful
+gunicorn
+numpy
