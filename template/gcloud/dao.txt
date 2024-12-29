@@ -8,8 +8,10 @@ class DAO(object):
     def __init__(self):
          self.db=firestore.Client()
 
-    def get(self):
-         
+    def get(self):      
+        tot = self.db.collection('<nome>').document(f'{id}').get()
+        return tot.to_dict()
+
     def post(self, data):
         ref = self.db.collection('<nome_collezione>')
         ref.document(name).set(data)
