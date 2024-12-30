@@ -1,0 +1,9 @@
+# creazione topic 
+gcloud pubsub topics create ${TOPIC_NAME}
+
+gcloud pubsub subscriptions create ${SUBSCRIPTION_NAME} --topic=${TOPIC_NAME}
+
+# Typical deployment command
+gcloud functions deploy ${FUNCTION_NAME} --runtime ${RUNTIME} --trigger-http --allow-unauthenticated
+gcloud functions deploy ${FUNCTION_NAME} --runtime ${RUNTIME} --trigger-event "${EVENT_TYPE}" --trigger-resource "${DOCUMENT_PATH}"
+gcloud functions deploy update_db --runtime=python39 --trigger-event="providers/cloud.firestore/eventTypes/document.write" --trigger-resource="projects/${PROJECT_ID}/databases/(default)/documents/temperature/{day}” --docker-registry=artifact-registry --no-gen2
