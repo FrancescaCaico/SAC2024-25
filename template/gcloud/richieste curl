@@ -1,0 +1,9 @@
+COMANDI ONELINE PER LE RICHIESTE GET E POST TRAMITE CURL
+
+
+### RICHIESTE GET 
+curl -v http://127.0.0.1:8080/api/v1/consumi/01-11-2022 
+
+### RICHIESTE POST 
+curl -d '{"data": "04-10-2024","value": 4}' -H "Content-Type: application/json" -v -X POST https://edisonluce.nw.r.appspot.com/api/v1/consumi/04-10-2024
+curl -d '{"data": "04-10-2024","value": 4}' -H "Content-Type: application/json" -v -X POST https://127.0.0.1:8080/api/v1/consumi/04-10-2024
