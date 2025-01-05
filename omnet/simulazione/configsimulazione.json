@@ -1,0 +1,20 @@
+{
+    "scenario_schema": {
+        "ft": {"pattern": "**.ft", "type": "real"}
+    },
+    "metrics": {
+        "ResponseTime": {"module": "**.sink", "scalar_name": "lifeTime:mean", "aggr": ["none"]}
+    },
+    "analyses": {
+        "SigmaSens": {
+            "outfile": "results/simulazione.data",
+            "scenarios": {
+                "fixed": {},
+                "range": ["ft"]
+            },
+            "metrics": [
+                {"metric": "ResponseTime", "aggr":  "none"}
+            ]
+        }
+    }
+}
