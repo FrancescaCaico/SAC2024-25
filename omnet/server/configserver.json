@@ -1,0 +1,30 @@
+{
+    "scenario_schema": {
+      "lambda": {"pattern": "**.lambda", "type": "real"},
+      "mu_net": {"pattern": "**.mu_net", "type": "real"},
+      "mu_cpu": {"pattern": "**.mu_cpu", "type": "real"},
+      "mu_disk": {"pattern": "**.mu_disk", "type": "real"}
+    },
+    "metrics": {
+        "ResponseTime": {"module": "**.sink", "scalar_name": "lifeTime:mean", "aggr": ["none"]}, 
+        "UtilizationNet": {"module": "**.net", "scalar_name": "busy:timeavg", "aggr": ["none"]},
+        "UtilizationCPU": {"module": "**.cpu", "scalar_name": "busy:timeavg", "aggr": ["none"]},
+        "UtilizationDisk": {"module": "**.disk", "scalar_name": "busy:timeavg", "aggr": ["none"]}
+
+    },
+    "analyses": {
+        "SigmaSens": {
+            "outfile": "results/server.data",
+            "scenarios": {
+                "fixed": {"mu_net": "20", "mu_cpu": "10", "mu_disk": "15"},
+                "range": ["lambda"]
+            }, 
+            "metrics": [
+                {"metric": "ResponseTime", "aggr":  "none"},
+                {"metric": "UtilizationNet", "aggr":  "none"},
+                {"metric": "UtilizationCPU", "aggr":  "none"},
+                {"metric": "UtilizationDisk", "aggr":  "none"}
+            ]
+        }
+    }
+}
