@@ -7,7 +7,7 @@
         "ResponseTimeMean": {"module": "**.sink", "scalar_name": "lifeTime:mean", "aggr": ["none"]},
         "ResponseTimeMax": {"module": "**.sink", "scalar_name": "lifeTime:max", "aggr": ["none"]},
         "Utilization": {"module": "**.srv", "scalar_name": "busy:timeavg", "aggr": ["none"]},
-        "QueueTime": {"module": "**.sink", "scalar_name": "totalQueueingTime:mean" ,"aggr": ["none"]}},
+        "QueueTime": {"module": "**.sink", "scalar_name": "totalQueueingTime:mean" ,"aggr": ["none"]},
 
     },
     "analyses": {
