@@ -1,0 +1,26 @@
+{
+    "scenario_schema": {
+        "sigma": {"pattern": "**.sigma", "type": "real"}
+    },
+    "metrics": {
+        "ResponseTimeMean": {"module": "**.Sink", "scalar_name": "lifeTime:mean", "aggr": ["none"]},
+        "ResponseTimeMax": {"module": "**.Sink", "scalar_name": "lifeTime:max", "aggr": ["none"]},
+        "UtilizationHi": {"module": "**.HiLoadSrv", "scalar_name": "busy:timeavg", "aggr": ["none"]}, 
+        "UtilizationLow": {"module": "**.LowLoadSrv", "scalar_name": "busy:timeavg", "aggr": ["none"]}
+    },
+    "analyses": {
+        "SigmaSens": {
+            "outfile": "results/un.data",
+            "scenarios": {
+                "fixed": {},
+                "range": ["sigma"]
+            },
+            "metrics": [
+                {"metric": "ResponseTimeMean", "aggr":  "none"},
+                {"metric": "ResponseTimeMax", "aggr":  "none"},
+                {"metric": "UtilizationHi", "aggr": "none"},
+                {"metric": "UtilizationLow", "aggr": "none"}
+            ]
+        }
+    }
+}
