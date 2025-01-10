@@ -1,0 +1,20 @@
+import org.omnetpp.queueing.Queue;
+import org.omnetpp.queueing.Sink;
+import org.omnetpp.queueing.Source;
+
+//  DELAY --> IN[], OUT 
+//  SOURCE --> OUT
+//  SINK --> IN[]
+//  QUEUE --> IN[] , OUT
+//  ROUTER --> IN[] , OUT []
+
+
+network <nome> {
+    parameters:
+        
+    submodules:
+
+    connections:
+  
+        
+}
