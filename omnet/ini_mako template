@@ -1,0 +1,26 @@
+[General]
+ned-path = .;../queueinglib
+network = nome
+#cpu-time-limit = 60s
+cmdenv-config-name =   nomeBase
+#tkenv-default-config = nomeBase
+qtenv-default-config = nomeBase
+repeat = 5
+sim-time-limit = 10000s
+#debug-on-errors = true
+**.vector-recording = false
+
+[Config nomeBase]
+description = "Global scenario"
+**.Sink.lifeTime.result-recording-modes = +histogram
+**.LowLoadSrv.queueLength.result-recording-modes = +histogram
+**.HiLoadSrv.queueLength.result-recording-modes = +histogram
+
+% for s in [0, 1, 2, 3]:
+[Config nome_x${"%02d" % int(s*10)}]
+extends = nomeBase
+**.sigma = ${s}
+
+%endfor
+
+
