@@ -1,0 +1,30 @@
+{
+    "scenario_schema": {
+        "sigma": {"pattern": "**.sigma", "type": "real"}
+    },
+    "metrics": {
+        "ResponseTime1Mean": {"module": "**.Sink1", "scalar_name": "lifeTime:mean", "aggr": ["none"]},
+        "ResponseTime1Max": {"module": "**.Sink1", "scalar_name": "lifeTime:max", "aggr": ["none"]},
+        "ResponseTime2Mean": {"module": "**.Sink2", "scalar_name": "lifeTime:mean", "aggr": ["none"]},
+        "ResponseTime2Max": {"module": "**.Sink2", "scalar_name": "lifeTime:max", "aggr": ["none"]},
+        "UtilizationHi": {"module": "**.HiLoadSrv", "scalar_name": "busy:timeavg", "aggr": ["none"]}, 
+        "UtilizationLow": {"module": "**.LowLoadSrv", "scalar_name": "busy:timeavg", "aggr": ["none"]}
+    },
+    "analyses": {
+        "SigmaSens": {
+            "outfile": "results/un3.data",
+            "scenarios": {
+                "fixed": {},
+                "range": ["sigma"]
+            },
+            "metrics": [
+                {"metric": "ResponseTime1Mean", "aggr":  "none"},
+                {"metric": "ResponseTime1Max", "aggr":  "none"},
+                {"metric": "ResponseTime2Mean", "aggr":  "none"},
+                {"metric": "ResponseTime2Max", "aggr":  "none"},
+                {"metric": "UtilizationHi", "aggr": "none"},
+                {"metric": "UtilizationLow", "aggr": "none"}
+            ]
+        }
+    }
+}
