@@ -1,0 +1,24 @@
+
+{
+    "scenario_schema": {
+        "rho": {"pattern": "**.rho", "type": "real"},
+        "cv": {"pattern": "**.cv", "type": "real"}
+    },
+    "metrics": {
+        "ResponseTime": {"module": "**.sink", "scalar_name": "lifeTime:mean", "aggr": ["none"]}, 
+        "Utilization": {"module": "**.srv", "scalar_name": "busy:timeavg", "aggr": ["none"]}  ,
+        "QueueTime": {"module": "**.sink", "scalar_name": "totalQueueingTime:mean" ,"aggr": ["none"]}},
+    "analyses": {
+        "SigmaSens": {
+            "outfile": "results/lognormal.data",
+            "scenarios": {
+                "fixed": {},
+                "range": ["rho", "cv"]
+            },
+            "metrics": [
+                {"metric": "ResponseTime", "aggr":  "none"},
+                {"metric": "QueueTime", "aggr":  "none"}
+            ]
+        }
+    }
+}
