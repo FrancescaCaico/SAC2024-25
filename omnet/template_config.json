@@ -1,0 +1,26 @@
+
+{
+    "scenario_schema": {
+        "s": {"pattern": "**.sigma", "type": "real"}
+    },
+    "metrics": {
+        "ResponseTimeMean": {"module": "**.sink", "scalar_name": "lifeTime:mean", "aggr": ["none"]}, # media del tempo di risposta
+        "ResponseTimeMax": {"module": "**.sink", "scalar_name": "lifeTime:max", "aggr": ["none"]}, # massimo tempo di risposta
+        "Utilization": {"module": "**.srv", "scalar_name": "busy:timeavg", "aggr": ["none"]},
+
+    },
+    "analyses": {
+        "SigmaSens": {
+            "outfile": "results/nome.data",
+            "scenarios": {
+                "fixed": {},
+                "range": ["sigma"]
+            },
+            "metrics": [
+                {"metric": "ResponseTime", "aggr":  "none"},
+                {"metric": "ResponseTimeMax", "aggr": "none"},
+                {"metric": "Utilization", "aggr": "none"},
+            ]
+        }
+    }
+}
