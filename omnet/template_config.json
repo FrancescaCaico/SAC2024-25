@@ -4,8 +4,8 @@
         "s": {"pattern": "**.sigma", "type": "real"}
     },
     "metrics": {
-        "ResponseTimeMean": {"module": "**.sink", "scalar_name": "lifeTime:mean", "aggr": ["none"]}, # media del tempo di risposta
-        "ResponseTimeMax": {"module": "**.sink", "scalar_name": "lifeTime:max", "aggr": ["none"]}, # massimo tempo di risposta
+        "ResponseTimeMean": {"module": "**.sink", "scalar_name": "lifeTime:mean", "aggr": ["none"]},
+        "ResponseTimeMax": {"module": "**.sink", "scalar_name": "lifeTime:max", "aggr": ["none"]},
         "Utilization": {"module": "**.srv", "scalar_name": "busy:timeavg", "aggr": ["none"]},
         "QueueTime": {"module": "**.sink", "scalar_name": "totalQueueingTime:mean" ,"aggr": ["none"]}},
 
@@ -18,9 +18,10 @@
                 "range": ["sigma"]
             },
             "metrics": [
-                {"metric": "ResponseTime", "aggr":  "none"},
+                {"metric": "ResponseTimeMean", "aggr":  "none"},
                 {"metric": "ResponseTimeMax", "aggr": "none"},
                 {"metric": "Utilization", "aggr": "none"},
+                {"metric": "QueueTime", "aggr": "none"},
             ]
         }
     }
