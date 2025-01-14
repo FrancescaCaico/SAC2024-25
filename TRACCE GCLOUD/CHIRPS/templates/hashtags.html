@@ -1,0 +1,47 @@
+<html>
+<link rel="stylesheet" href="static/style.css">
+
+<body>
+    {% if messages %}
+    <h2>Messaggi da hashtag</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        {%for m in messages %}
+        <tbody>
+            <td>{{loop.index}}</td>
+            <td>{{m}}</td>
+        </tbody>
+        {%endfor%}
+    </table>
+
+    {%endif%}
+
+
+
+    {% if cantieri %}
+    <h2>Cantieri</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Indirizzo</th>
+                <th>CAP</th>
+            </tr>
+        </thead>
+        {%for c in cantieri %}
+        <tbody>
+            <td>{{c.indirizzo}}</td>
+            <td>{{c.cap}}</td>
+        </tbody>
+        {%endfor%}
+    </table>
+
+    {%endif%}
+
+</body>
+
+</html>

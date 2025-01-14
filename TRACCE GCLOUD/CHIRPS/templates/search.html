@@ -1,0 +1,27 @@
+<html>
+<link rel="stylesheet" href="static/style.css">
+
+<body>
+
+    {% if ok %}
+    <h1> Messaggio inviato</h1>
+
+    {%else%}
+    <h1> Send Message </h1>
+    <form method="POST">
+        {{form_msg.message.label}}{{form_msg.message}}
+        {{form_msg.sub}}
+    </form>
+    {%endif%}
+
+    <h1> Search Hashtags </h1>
+    <form method="GET">
+        {{form_hash.hashtag.label}}{{form_hash.hashtag}}
+        {{form_hash.sub}}
+    </form>
+
+
+
+</body>
+
+</html>
