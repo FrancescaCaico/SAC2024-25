@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<link rel="stylesheet" href="/static/style.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<body>
+    {% if rules %}
+    <h2>Tabella di routing</h2>
+    <table style="text-align: center;">
+        <tr>
+            <th>
+                Rete
+            </th>
+            <th>
+                CIDR netmask
+            </th>
+            <th>
+                Gateway
+            </th>
+            <th>
+                Device
+            </th>
+        </tr>
+        {% for rule in rules %}
+        <tr class="row" id="{{ rule.rule_id }}">
+            <td>
+                {{ rule.ip }}
+            </td>
+            <td>
+                {{ rule.netmaskCIDR }}
+            </td>
+            <td>
+                {{ rule.gw }}
+            </td>
+            <td>
+                {{ rule.device }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {%endif%}
+
+    </table>
+    <form action="#" onsubmit="return getRoute()">
+        <input type="text" id="ip" placeholder="Inserire indirizzo IP">
+        <button type="submit">Route</button>
+    </form>
+    <script>
+        function getRoute() {
+            const text = $("#ip").val();
+            console.log(text)
+            const result = $.ajax({
+                type: "POST",
+                url: '/api/v1/routing',
+                data: JSON.stringify(text),
+                contentType: 'application/json',
+                success: (id) => {
+                    $(`.row`).css("background", "transparent")
+                    $(`.row`).css("color", "blue")
+                    $(`#${id}`).css("background", "red")
+                    $(`#${id}`).css("color", "white")
+                },
+                dataType: 'json'
+            });
+        }
+    </script>
+
+</html>
