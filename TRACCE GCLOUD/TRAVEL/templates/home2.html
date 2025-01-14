@@ -1,0 +1,51 @@
+<html>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<body>
+    <h1> Viaggi</h1>
+    {% if travels %}
+    <table>
+        <thead>
+            <tr>
+                <th>From </th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Option</th>
+                <th>Passengers</th>
+            </tr>
+        </thead>
+        {%for t in travels %}
+        <tbody>
+            <td>{{t.original.from}}</td>
+            <td>{{t.original.to}}</td>
+            <td>{{t.original.date}}</td>
+            <td><a href="{{ url_for('modifyRoute', user=t.original.user, date=t.original.date) }}">Modify</td>
+            <td>{%for u in t.original_users %}
+
+                <p>{{u}}</p>
+
+                {%endfor%}
+            </td>
+            {%if t.modified %}
+            <tr>
+                <td class="modified">{{t.modified.new_from}}</td>
+                <td class="modified">{{t.modified.new_to}}</td>
+                <td class="modified">{{t.modified.new_date}}</td>
+                <td class="modified"></td>
+                <td class="modified">{%for u in t.new_users %}
+
+                    <p>{{u}}</p>
+
+                    {%endfor%}
+                </td>
+            </tr>
+            {%endif%}
+        </tbody>
+        {%endfor%}
+    </table>
+
+    {%endif%}
+
+</body>
+
+</html>

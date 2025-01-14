@@ -1,0 +1,37 @@
+<html>
+<link rel="stylesheet" href="static/style.css">
+
+<body>
+    <h1> Viaggi</h1>
+    {% if travels %}
+    <table>
+        <thead>
+            <tr>
+                <th>From </th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Option</th>
+                <th>Passengers</th>
+            </tr>
+        </thead>
+        {%for t in travels %}
+        <tbody>
+            <td>{{t.route.from}}</td>
+            <td>{{t.route.to}}</td>
+            <td>{{t.route.date}}</td>
+            <td><a href="{{ url_for('modifyRoute', user=t.route.user, date=t.route.date) }}">Modify</td>
+            <td>{%for u in t.users %}
+
+                <p>{{u}}</p>
+
+                {%endfor%}
+            </td>
+        </tbody>
+        {%endfor%}
+    </table>
+
+    {%endif%}
+
+</body>
+
+</html>

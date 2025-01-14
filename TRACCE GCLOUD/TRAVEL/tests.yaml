@@ -1,0 +1,59 @@
+api_name: "travel/{user}/{date}"
+tests:
+  # CLEAN
+  - title: "clean"
+    url: "/api/v1/clean"
+    method: GET
+    exp_rc: 200
+
+  # Wrong GET requests
+  - title: "GET#01"
+    url: "/api/v1/travel/wrong-user-id/2025-01-01"
+    method: GET
+    exp_rc: 404
+  
+  - title: "GET#02"
+    url: "/api/v1/travel/12345678-1234-5678-1234-567812345678/wrong-date"
+    method: GET
+    exp_rc: 404
+
+  # Wrong POST requests for travel
+  - title: "POST#01"
+    url: "/api/v1/travel/12345678-1234-5678-1234-567812345678/2025-01-01"
+    method: POST
+    body: "{}"
+    exp_rc: 400
+
+  - title: "POST#02"
+    url: "/api/v1/travel/12345678-1234-5678-1234-567812345678/2025-01-01"
+    method: POST
+    body: "{\"from\": \"BLQ\"}"
+    exp_rc: 400
+
+  - title: "POST#03"
+    url: "/api/v1/travel/12345678-1234-5678-1234-567812345678/2025-01-01"
+    method: POST
+    body: "{\"from\": \"Bologna\", \"to\": \"CGD\"}"
+    exp_rc: 400
+
+  # Correct POST request for travel
+  - title: "POST#04"
+    url: "/api/v1/travel/12345678-1234-5678-1234-567812345678/2025-01-01"
+    method: POST
+    body: "{\"from\": \"BLQ\", \"to\": \"CGD\"}"
+    exp_rc: 201
+    exp_body: "{\"from\": \"BLQ\", \"to\": \"CGD\"}"
+
+  # Retrieve record
+  - title: "GET#03"
+    url: "/api/v1/travel/12345678-1234-5678-1234-567812345678/2025-01-01"
+    method: GET
+    exp_rc: 200
+    exp_body: "{\"from\": \"BLQ\", \"to\": \"CGD\"}"
+
+  # Conflict
+  - title: "POST#05"
+    url: "/api/v1/travel/12345678-1234-5678-1234-567812345678/2025-01-01"
+    method: POST
+    body: "{\"from\": \"BLQ\", \"to\": \"CGD\"}"
+    exp_rc: 409
