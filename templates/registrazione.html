@@ -1,0 +1,26 @@
+<html>
+<link rel="stylesheet" href="static/style.css">
+
+<body>
+
+    <h1> Registrati </h1>
+    <form method="POST">
+        {{form.nome.label}}{{form.nome}}
+        {{form.cognome.label}}{{form.cognome}}
+        {{form.email.label}}{{form.email}}
+        {{form.submit}}
+    </form>
+
+    {% if ok %}
+    <h1> UTENTE REGISTRATO</h1>
+    {%endif%}
+
+    {% if presente %}
+    <h1> UTENTE GIÀ REGISTRATO</h1>
+    {%endif%}
+
+
+
+</body>
+
+</html>

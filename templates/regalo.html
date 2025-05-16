@@ -1,0 +1,33 @@
+<html>
+<link rel="stylesheet" href="static/style.css">
+
+<body>
+    <h1> Search Umarell </h1>
+    <form method="POST">
+        {{form.email.label}}{{form.email}}
+        {{form.submit}}
+    </form>
+
+    {% if to %}
+    <h2>Destinatario</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <td>{{to.toFirstName}}</td>
+            <td>{{to.toLastName}}</td>
+            <td>{{to.toEmail}}</td>
+        </tbody>
+
+    </table>
+    {%endif%}
+
+</body>
+
+</html>

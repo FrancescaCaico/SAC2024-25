@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 0px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/* Stile per le righe "modified" */
+.modified {
+    background-color: lightgreen;
+}
+
+/* Stile per le righe "original" */
+.original {
+    background-color: orange;
+}
+
+/* Classe di errore per messaggi */
+.error {
+    color: red;
+    font-style: oblique;
+}

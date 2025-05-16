@@ -1,0 +1,25 @@
+curl -d '{'firstName': 'Riccardo', 'lastName': 'Lancellotti'}' -H "Content-Type: application/json" -v -X POST http://127.0.0.1:8080/api/v1/santa/not_an_email
+
+curl -v http://127.0.0.1:8080/api/v1/consumi/04-11-2024
+
+
+###
+
+# curl -v http://127.0.0.1:8080/api/v1/santa/riccardo.lancellotti@unimore.it
+GET http://127.0.0.1:5000/api/v1/travel/marco
+
+###
+
+INVECE CHE CORPO VUOTO UNA TUPLA JSON 
+
+
+Request URI
+    POST https://examcloudfc.nw.r.appspot.com/api/v1/santa/not_an_email
+Request Body
+    {'firstName': 'Riccardo', 'lastName': 'Lancellotti'} 
+
+    {'firstName': 'Riccardo', 'lastName': 'Lancellotti'}
+
+    https://examcloudfc.nw.r.appspot.com/api/v1/santa/riccardo.lancellotti@unimore.it
+
+    api/v1/santa/mirco.marchetti@unimore.it
